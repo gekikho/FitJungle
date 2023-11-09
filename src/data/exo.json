@@ -1,0 +1,59 @@
+[
+    {
+        "name": "Chest",
+        "long_arms": "Incline Dumbbell Press",
+        "short_arms": "Bench Press",
+        "wide_ribs": "Decline Bench Press",
+        "slim_waist": "Dumbbell Flyes",
+        "broad_clavicles": "Pull-over",
+        "wide_femurs": "Dips in Supination"
+    },
+    {
+        "name": "Back",
+        "long_arms": "Lat Pulldown",
+        "short_arms": "Barbell Rows",
+        "wide_ribs": "Chin-Ups",
+        "slim_waist": "Bent-over Rows",
+        "broad_clavicles": "Seated Cable Rows"
+    },
+    {
+        "name": "Shoulders",
+        "long_arms": "Lateral Raises",
+        "short_arms": "Military Press",
+        "broad_clavicles": "Arnold Press",
+        "slim_waist": "Front Raises",
+        "wide_ribs": "Seated Lateral Raises"
+    },
+    {
+        "name": "Biceps",
+        "long_arms": "Hammer Curls",
+        "short_arms": "EZ Bar Curls",
+        "broad_clavicles": "Concentration Curls",
+        "slim_waist": "Incline Curls",
+        "wide_ribs": "21s"
+    },
+    {
+        "name": "Triceps",
+        "long_arms": "Overhead Tricep Extensions",
+        "short_arms": "Dips",
+        "broad_clavicles": "Skull Crushers",
+        "slim_waist": "Tricep Pushdowns",
+        "wide_ribs": "Bench Dips"
+    },
+    {
+        "name": "Quadriceps",
+        "wide_femurs": "Sumo Squats",
+        "slim_waist": "Standard Squats",
+        "broad_clavicles": "Front Squats",
+        "long_arms": "Goblet Squats",
+        "short_arms": "Bulgarian Split Squats"
+    },
+    {
+        "name": "Hamstrings",
+        "wide_femurs": "Stiff-legged Deadlifts",
+        "slim_waist": "Romanian Deadlifts",
+        "broad_clavicles": "Trap-bar Deadlifts",
+        "long_arms": "Lying Leg Curls",
+        "short_arms": "Conventional Deadlifts"
+    }
+]
