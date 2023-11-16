@@ -32,7 +32,7 @@ function Script() {
                 <h2 id="Logo">FitJungle</h2>
                 <nav className="menu1">
                     <ul>
-                        <li><a href="#">programme generaor</a></li>
+                        <li><a href="#prog" onClick={() => setPage("programme")}>programme generator</a></li>
                         <li><a href="#">Menu generator</a></li>
                         <li><a href="#">PR generator</a></li>
                         <li><a href="#">Find your Gymbro</a></li>
@@ -46,6 +46,21 @@ function Script() {
                     <h3>lakaka tintinri j zegu a iaOQSN JZOJVHIOZVCO CHKIZ <br></br> zec izc jcajoozjbzrugbo v zebé</h3>
                     <button id="start" onClick={() => setPage("programme")}>START</button>
                     <div>
+                        <p id ="certifications"> 
+                            Our gym plans are verified by 3 professionals coach <br></br>
+                            and we are certified by basic-fit, fitness park, david laid, tibo inshape, cbum and many others
+                        </p>
+
+                        <section id = "qui-sommes-nous">
+                            <div>
+                                <img id = "nous" src = "./images/zoro.png" alt = ""></img>
+                            </div>
+                            
+
+                            <div>
+                                <img id = "nous" src = "./images/zoro.png" alt = ""></img>
+                            </div>
+                        </section>
 
                     </div>
 
@@ -54,7 +69,7 @@ function Script() {
 
             ) : null}
             {Page === "programme" ? (
-                <>
+                <div>
 
 
                     {programme === 0 ? (
@@ -64,19 +79,20 @@ function Script() {
                             <div className="quizz">
                                 <p id="question">How many times a week are you ready to train? </p>
                                 <form>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, style: "full-body" }))}>2 times</button>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, style: "ppl" }))}>3 times</button>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, style: "upper-lower" }))}>4 times</button>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, style: "split" }))}>5 times</button>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, style: "ppl+" }))}>6 times</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, style: "full-body" })))}>2 times</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, style: "ppl" })))}>3 times</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, style: "upper-lower" })))}>4 times</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, style: "split" })))}>5 times</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, style: "ppl+" })))}>6 times</button>
 
 
                                 </form>
                                 <p>I advise you to train 3-4-5 per week</p>
+                                <button class="next" onClick={() => setProgramme(1)}>Next</button>
                             </div>
 
 
-                            <button class="next" onClick={() => setProgramme(1)}>Next</button>
+                            
                         </div>
 
 
@@ -88,14 +104,15 @@ function Script() {
                             <div className="quizz">
                                 <p id="question">What is your objective </p>
                                 <form>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, goal: "muscle" }))}>Gain muscle</button>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, goal: "strength" }))}>Gain strength</button>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, goal: "weight" }))}>Losing weight</button>
-                                    <button id="reponse" type="button" onClick={() => setPlan(prevPlan => ({ ...prevPlan, goal: "endurance" }))}>Gain endurance</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, goal: "muscle" })))}>Gain muscle</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, goal: "strength" })))}>Gain strength</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, goal: "weight" })))}>Losing weight</button>
+                                    <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, goal: "endurance" })))}>Gain endurance</button>
 
                                 </form>
+                                <button class="next" onClick={() => setProgramme(2)}>Next</button>
                             </div>
-                            <button class="next" onClick={() => setProgramme(2)}>Next</button>
+                            
                         </div>
 
 
@@ -112,19 +129,20 @@ function Script() {
                                 <form>
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].long_arms], back: [...prevPlan.back, exo[1].long_arms], shoulders: [...prevPlan.shoulders, exo[2].long_arms], biceps: [...prevPlan.biceps, exo[3].long_arms], triceps: [...prevPlan.triceps, exo[4].long_arms] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].long_arms], back: [...prevPlan.back, exo[1].long_arms], shoulders: [...prevPlan.shoulders, exo[2].long_arms], biceps: [...prevPlan.biceps, exo[3].long_arms], triceps: [...prevPlan.triceps, exo[4].long_arms] })))}>
                                         Long arms
                                     </button>
 
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].short_arms], back: [...prevPlan.back, exo[1].short_arms], shoulders: [...prevPlan.shoulders, exo[2].short_arms], biceps: [...prevPlan.biceps, exo[3].short_arms], triceps: [...prevPlan.triceps, exo[4].short_arms] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].short_arms], back: [...prevPlan.back, exo[1].short_arms], shoulders: [...prevPlan.shoulders, exo[2].short_arms], biceps: [...prevPlan.biceps, exo[3].short_arms], triceps: [...prevPlan.triceps, exo[4].short_arms] })))}>
                                         Short arms
                                     </button>
 
                                 </form>
+                                <button className="next" onClick={() => setProgramme(3)}>Next</button>
                             </div>
-                            <button className="next" onClick={() => setProgramme(3)}>Next</button>
+                            
                         </div>
 
 
@@ -137,18 +155,19 @@ function Script() {
                                 <form>
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].wide_ribs], back: [...prevPlan.back, exo[1].wide_ribs], shoulders: [...prevPlan.shoulders, exo[2].wide_ribs], biceps: [...prevPlan.biceps, exo[3].wide_ribs], triceps: [...prevPlan.triceps, exo[4].wide_ribs] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].wide_ribs], back: [...prevPlan.back, exo[1].wide_ribs], shoulders: [...prevPlan.shoulders, exo[2].wide_ribs], biceps: [...prevPlan.biceps, exo[3].wide_ribs], triceps: [...prevPlan.triceps, exo[4].wide_ribs] })))}>
                                         Yes
                                     </button>
 
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] })))}>
                                         No
                                     </button>
                                 </form>
+                                <button className="next" onClick={() => setProgramme(4)}>Next</button>
                             </div>
-                            <button className="next" onClick={() => setProgramme(4)}>Next</button>
+                            
                         </div>
 
 
@@ -163,18 +182,19 @@ function Script() {
                                 <form>
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].slim_waist], back: [...prevPlan.back, exo[1].slim_waist], shoulders: [...prevPlan.shoulders, exo[2].slim_waist], biceps: [...prevPlan.biceps, exo[3].slim_waist], triceps: [...prevPlan.triceps, exo[4].slim_waist], quadriceps: [...prevPlan.quadriceps, exo[5].broad_clavicles], hamstring: [...prevPlan.hamstring, exo[6].broad_clavicles] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].slim_waist], back: [...prevPlan.back, exo[1].slim_waist], shoulders: [...prevPlan.shoulders, exo[2].slim_waist], biceps: [...prevPlan.biceps, exo[3].slim_waist], triceps: [...prevPlan.triceps, exo[4].slim_waist], quadriceps: [...prevPlan.quadriceps, exo[5].broad_clavicles], hamstring: [...prevPlan.hamstring, exo[6].broad_clavicles] })))}>
                                         Yes
                                     </button>
 
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] })))}>
                                         No
                                     </button>
                                 </form>
+                                <button className="next" onClick={() => setProgramme(5)}>Next</button>
                             </div>
-                            <button className="next" onClick={() => setProgramme(5)}>Next</button>
+                            
                         </div>
 
 
@@ -189,18 +209,19 @@ function Script() {
                                 <form>
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].broad_clavicles], back: [...prevPlan.back, exo[1].broad_clavicles], shoulders: [...prevPlan.back, exo[2].broad_clavicles], biceps: [...prevPlan.biceps, exo[3].broad_clavicles], triceps: [...prevPlan.triceps, exo[4].broad_clavicles] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].broad_clavicles], back: [...prevPlan.back, exo[1].broad_clavicles], shoulders: [...prevPlan.back, exo[2].broad_clavicles], biceps: [...prevPlan.biceps, exo[3].broad_clavicles], triceps: [...prevPlan.triceps, exo[4].broad_clavicles] })))}>
                                         Yes
                                     </button>
 
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] })))}>
                                         No
                                     </button>
                                 </form>
+                                <button className="next" onClick={() => setProgramme(6)}>Next</button>
                             </div>
-                            <button className="next" onClick={() => setProgramme(6)}>Next</button>
+                            
                         </div>
 
 
@@ -216,19 +237,20 @@ function Script() {
                                 <form>
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].wide_femurs], back: [...prevPlan.back, exo[1].wide_femurs], shoulders: [...prevPlan.back, exo[2].wide_femurs], quadriceps: [...prevPlan.quadriceps, exo[5].wide_femurs], hamstring: [...prevPlan.hamstring, exo[6].wide_femurs] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, exo[0].wide_femurs], back: [...prevPlan.back, exo[1].wide_femurs], shoulders: [...prevPlan.back, exo[2].wide_femurs], quadriceps: [...prevPlan.quadriceps, exo[5].wide_femurs], hamstring: [...prevPlan.hamstring, exo[6].wide_femurs] })))}>
                                         Yes
                                     </button>
 
                                     <button
                                         id="reponse" type="button"
-                                        onClick={() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] }))}>
+                                        onClick={(() => setPlan(prevPlan => ({ ...prevPlan, chest: [...prevPlan.chest, ""] })))}>
                                         No
                                     </button>
 
                                 </form>
+                                <button className="next" onClick={() => setProgramme(7)}>Next</button>
                             </div>
-                            <button className="next" onClick={() => setProgramme(7)}>Next</button>
+                            
                         </div>
 
 
@@ -243,50 +265,50 @@ function Script() {
                                 {plan.style === "full-body" && (
                                     <>
                                         <p id = "prog">
-                                            <h4>Day 1 :</h4> <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br /> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/> <br/> <br/>
-                                            <h4>Day 2 :</h4> <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br /> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} </p>
+                                            <h3 id = "day">Day 1 :</h3 > <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br /> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/> <br/> <br/>
+                                            <h3 id = "day">Day 2 :</h3 > <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br /> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} </p>
                                     </>
                                 )}
 
                                 {plan.style === "ppl" && (
                                     <>
                                     <p id = "prog">
-                                    <h4>Day 1 :</h4> <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br />                                       
-                                    <h4>Day 2 :</h4> <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br />                                        
-                                    <h4>Day 3 :</h4> <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/> </p>
+                                    <h3 id = "day">Day 1 :</h3 > <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br />                                       
+                                    <h3 id = "day">Day 2 :</h3 > <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br />                                        
+                                    <h3 id = "day">Day 3 :</h3 > <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/> </p>
                                     </>
                                 )}
 
                                 {plan.style === "upper-lower" && (
                                     <>
                                     <p id = "prog">
-                                    <h4>Day 1 :</h4> <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>back:</h5> {plan.back.join(', ')} <br /> <br />    
-                                    <h4>Day 2 :</h4> <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} <br/>
-                                    <h4>Day 3 :</h4> <br /> <br />  <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>back:</h5> {plan.back.join(', ')} <br /> <br />      
-                                    <h4>Day 4 :</h4> <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} <br/> </p>
+                                    <h3 id = "day">Day 1 :</h3 >  <h5>Chest :</h5> {plan.chest.join(', ')} <br/>  <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <h5>back:</h5> {plan.back.join(', ')} <br />   
+                                    <h3 id = "day">Day 2 :</h3 > <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} <br/>
+                                    <h3 id = "day">Day 3 :</h3 >  <h5>Chest :</h5> {plan.chest.join(', ')} <br/>  <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <h5>back:</h5> {plan.back.join(', ')} <br />     
+                                    <h3 id = "day">Day 4 :</h3 >  <h5>Legs:</h5> {plan.quadriceps.join(', ')}, {plan.hamstring.join(', ')} <br/> </p>
                                     </>
                                 )}
 
                                 {plan.style === "split" && (
                                    <>
                                    <p id = "prog">
-                                   <h4>Day 1 :</h4> <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br />  <h5>back:</h5> {plan.back.join(', ')} <br /> <br />  
-                                   <h4>Day 2 :</h4> <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br />  <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /><h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br />
-                                   <h4>Day 3 :</h4> <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} <br/> <br/>
-                                   <h4>Day 4 :</h4> <br/> <br/> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>back:</h5> {plan.back.join(', ')} <br /> <br />      
-                                   <h4>Day 5 :</h4> <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} <br/> </p>
+                                   <h3 id = "day">Day 1 :</h3 >  <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br />  <h5>back:</h5> {plan.back.join(', ')} <br /> <br />  
+                                   <h3 id = "day">Day 2 :</h3 > <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br />  <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /><h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br />
+                                   <h3 id = "day">Day 3 :</h3 > <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} <br/> <br/>
+                                   <h3 id = "day">Day 4 :</h3 >  <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>back:</h5> {plan.back.join(', ')} <br /> <br />      
+                                   <h3 id = "day">Day 5 :</h3 >  <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')} <br/> </p>
                                    </>
                                 )}
 
                                 {plan.style === "ppl+" && (
                                     <>
                                     <p id = "prog">
-                                    <h4>Day 1 :</h4> <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br />                                        
-                                    <h4>Day 2 :</h4> <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> 
-                                    <h4>Day 3 :</h4> <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/>
-                                    <h4>Day 4 :</h4> <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br /> 
-                                    <h4>Day 5 :</h4> <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> 
-                                    <h4>Day 6 :</h4> <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/> </p>
+                                    <h3 id = "day">Day 1 :</h3 > <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br />                                        
+                                    <h3 id = "day">Day 2 :</h3 > <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> 
+                                    <h3 id = "day">Day 3 :</h3 > <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/>
+                                    <h3 id = "day">Day 4 :</h3 > <br /> <br /> <h5>Chest :</h5> {plan.chest.join(', ')} <br /> <br /> <h5>Shoulders:</h5> {plan.shoulders.join(', ')} <br /> <br /> <h5>Triceps:</h5> {plan.triceps.join(', ')} <br /> <br /> 
+                                    <h3 id = "day">Day 5 :</h3 > <br /> <br /> <h5>Back:</h5> {plan.back.join(', ')} <br /> <br /> <h5>Biceps:</h5> {plan.biceps.join(', ')} <br /> <br /> 
+                                    <h3 id = "day">Day 6 :</h3 > <br/><br/> <h5>Legs:</h5> {plan.quadriceps.join(', ')} {plan.hamstring.join(', ')}<br/> </p>
                                     </>
                                 )}
                             </div>
@@ -294,7 +316,7 @@ function Script() {
                     ) : null}
 
 
-                </>
+                </div>
             ) : null}
 
         </>
