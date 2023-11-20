@@ -1,10 +1,12 @@
 import { useState } from "react";
-import background from "./images/background.mp4";
-import exo from "../data/exo.json"
+import exo from "../data/exo.json";
 
 function Script() {
     const [Page, setPage] = useState("home");
     const [programme, setProgramme] = useState(0);
+    const [Bench, setBench] = useState(0);
+    const [Squat, setSquat] = useState(0);
+    const [Deadlift, setDeadlift] = useState(0);
 
     const [plan, setPlan] = useState({
         style: " ",
@@ -20,7 +22,11 @@ function Script() {
 
     { console.log(plan) }
 
-
+function pr(max){
+    
+    const liste = [20, max * 0.4,max * 0.7,max * 0.85, max];
+    return liste
+}
 
 
 
@@ -33,8 +39,7 @@ function Script() {
                 <nav className="menu1">
                     <ul>
                         <li><a href="#prog" onClick={() => setPage("programme")}>programme generator</a></li>
-                        <li><a href="#">Menu generator</a></li>
-                        <li><a href="#">PR generator</a></li>
+                        <li><a href="#pr" onClick={() => setPage("pr")}>PR generator</a></li>
                         <li><a href="#">Find your Gymbro</a></li>
                     </ul>
                 </nav>
@@ -46,21 +51,22 @@ function Script() {
                     <h3>lakaka tintinri j zegu a iaOQSN JZOJVHIOZVCO CHKIZ <br></br> zec izc jcajoozjbzrugbo v zebé</h3>
                     <button id="start" onClick={() => setPage("programme")}>START</button>
                     <div>
+                        
                         <p id ="certifications"> 
                             Our gym plans are verified by 3 professionals coach <br></br>
                             and we are certified by basic-fit, fitness park, david laid, tibo inshape, cbum and many others
                         </p>
-
                         <section id = "qui-sommes-nous">
-                            <div>
-                                <img id = "nous" src = "./images/zoro.png" alt = ""></img>
-                            </div>
+                        
+                                <img className= "nous" src = "./images/guts.png" alt = ""/>
+                            
                             
 
-                            <div>
-                                <img id = "nous" src = "./images/zoro.png" alt = ""></img>
-                            </div>
+                        
+                                <img className= "nous" src="./images/guts.png" alt = ""/>
+                            
                         </section>
+                        
 
                     </div>
 
@@ -87,7 +93,7 @@ function Script() {
 
 
                                 </form>
-                                <p>I advise you to train 3-4-5 per week</p>
+                                <p className="conseil">I advise you to train 3-4-5 per week</p>
                                 <button class="next" onClick={() => setProgramme(1)}>Next</button>
                             </div>
 
@@ -110,6 +116,7 @@ function Script() {
                                     <button id="reponse" type="button" onClick={(() => setPlan(prevPlan => ({ ...prevPlan, goal: "endurance" })))}>Gain endurance</button>
 
                                 </form>
+                                <p className="conseil">If you play a sport, choose gain strength or endurance<br/> If you are a gym beginner with a correct BMI, choose gain muscle <br/> If your BMI is more than 25, choose Losing weight </p>
                                 <button class="next" onClick={() => setProgramme(2)}>Next</button>
                             </div>
                             
@@ -140,6 +147,7 @@ function Script() {
                                     </button>
 
                                 </form>
+                                <p className="conseil">To find out, stand with your arms alongside your body; if your elbow is at waist level, your arms are long!</p>
                                 <button className="next" onClick={() => setProgramme(3)}>Next</button>
                             </div>
                             
@@ -165,8 +173,10 @@ function Script() {
                                         No
                                     </button>
                                 </form>
+                                <p className="conseil">If the area below your chest is wider than the middle area, you potentially have wide ribs</p>
                                 <button className="next" onClick={() => setProgramme(4)}>Next</button>
                             </div>
+                            <img src = "ribs.jpg"/>
                             
                         </div>
 
@@ -174,8 +184,6 @@ function Script() {
 
                     ) : null}
                     {programme === 4 ? (
-
-
                         <div className="block">
                             <div className="quizz">
                                 <p id="question">Do you have slim waist ?</p>
@@ -192,6 +200,7 @@ function Script() {
                                         No
                                     </button>
                                 </form>
+                                <p className="conseil">if your waist is narrower than the bottom of your sides, then you have a thin waist</p>
                                 <button className="next" onClick={() => setProgramme(5)}>Next</button>
                             </div>
                             
@@ -219,6 +228,7 @@ function Script() {
                                         No
                                     </button>
                                 </form>
+                                <p className="conseil">if the distance between your shoulders is greater than the width of your waist, then you have long clavicles</p>
                                 <button className="next" onClick={() => setProgramme(6)}>Next</button>
                             </div>
                             
@@ -248,6 +258,7 @@ function Script() {
                                     </button>
 
                                 </form>
+                                <p className="conseil">if the distance between your hips and knees is greater than that of your shins, then you have long femurs</p>
                                 <button className="next" onClick={() => setProgramme(7)}>Next</button>
                             </div>
                             
@@ -317,7 +328,39 @@ function Script() {
 
 
                 </div>
+            ) : null }
+
+            {Page === "pr" ?(
+                <div id = "pr">
+                    <h4>
+                    Strength is a big part of bodybuilding, it measures our level and our experience unconsciously it is measured by <br/>the bench, the squat and the deadlift.
+                    <br/> <br/> <br/> <br/> <br/>
+                    </h4>
+                    <div>
+                        <h2>Bench</h2>
+                        <input id = "bench" type = "number" placeholder="input your personnal record in 1 rep" onChange={(e) => setBench(e.target.value)}/>
+                        <br/>
+                        <h2>Squat</h2>
+                        <input id = "squat" type = "number" placeholder="input your personnal record in 1 rep" onChange={(e) => setSquat(e.target.value)}/>
+                        <br/>
+                        <h2>Deadlift</h2>
+                        <input id = "deadlift" type = "number" placeholder="input your personnal record in 1 rep" onChange={(e) => setDeadlift(e.target.value)}/>
+                    </div>
+                    <button className="next" onClick={() => setPage("pr2")}>Next</button>
+                
+                
+
+            </div>
             ) : null}
+            {Page === "pr2" ?(
+                <div class="block">
+                   <div class="quizz2"> 
+                   <h3 id = "day">Bench</h3> <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5> 3min rest <br/><h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest<br/><h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br/><h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br/><h5>Step 5: {pr(Bench)[4]}  * 1</h5>
+                     <h3 id = "day">Squat</h3><h5>Step 1: {pr(Bench)[0]} x 15 rep </h5> 3min rest <br/><h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest<br/><h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br/><h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br/><h5>Step 5: {pr(Bench)[4]}  * 1</h5>
+                     <h3 id = "day">Deadlift</h3><h5>Step 1: {pr(Bench)[0]} x 15 rep </h5> 3min rest <br/><h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest<br/><h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br/><h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br/><h5>Step 5: {pr(Bench)[4]}  * 1</h5>
+                   </div>
+                 </div>
+                ): null}
 
         </>
 

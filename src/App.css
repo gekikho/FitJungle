@@ -12,15 +12,15 @@ body {
 }
 
 .App-header {
-  background-color: rgba(0, 0, 0, 0.5)  ;
+  background-color: rgba(0, 0, 0, 0.3);
   min-height: 17vh;
   display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: end;
   font-size: calc(10px + 2vmin);
   color: white;
+  align-items: center;
+  justify-content: space-between;
 }
+
 
 #home{
   align-items: center;
@@ -40,7 +40,7 @@ body {
     align-items: end;
   }
 #Logo{
-  margin-right: 190vh;
+  margin-left: 20px;
 }
 
 #start{
@@ -85,6 +85,10 @@ h3{
 
 }
 
+.conseil{
+  margin-bottom: 70px;
+}
+
 #day{
   margin-top: 10px;
   margin-bottom: 5px;
@@ -122,7 +126,7 @@ h3{
 #reponse:focus{
   background: rgba(255, 255, 255, 0.5);
   color: #fff;
-  border : 2px solid black;
+  border : 2px solid white;
 }
 
 p{
@@ -139,15 +143,14 @@ p{
 }
 
 .next{
-  margin-top: 20px;
-  font-size: 30px;
+
+  font-size: 20px;
   padding: 10px 20px;
   color: #fff;
   background: black;
   border: 2px solid white;
-  position: absolute;
   bottom: 20px; 
-  right: 20px;
+  right: 620px;
   border-radius: 40px;
 }
 
@@ -162,6 +165,7 @@ p{
   position: relative;
   background: rgba(0, 0, 0, 0.5);
   text-align: center;
+  color : white;
   margin: 30px auto; 
   padding: 30px;
   border: 2px solid white;
@@ -186,6 +190,10 @@ p{
   color: white;
 }
 
+.quizz2 h5 {
+  color: white;
+}
+
 
 #prog {
   border: 2px solid rgb(82, 80, 80);
@@ -206,4 +214,39 @@ p{
   text-align: center;
   margin-top: 70px;
 
+}
+
+#pr{
+  text-align: center;
+  color: white;
+}
+
+#root {
+  -webkit-animation: slide-in-top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: slide-in-top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
