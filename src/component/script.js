@@ -29,7 +29,9 @@ function Script() {
         rel="stylesheet"
       ></link>
       <header className="App-header">
-        <h2 id="Logo">FitJungle</h2>
+        <a href="#" onClick={() => setPage("home")}>
+          <h2 id="Logo">FitJungle</h2>{" "}
+        </a>
         <nav className="menu1">
           <ul>
             <li>
