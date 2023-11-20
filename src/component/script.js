@@ -24,13 +24,17 @@ function Script() {
 
   return (
     <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet"
+      ></link>
       <header className="App-header">
         <h2 id="Logo">FitJungle</h2>
         <nav className="menu1">
           <ul>
             <li>
               <a href="#prog" onClick={() => setPage("programme")}>
-                programme generator
+                Programme generator
               </a>
             </li>
             <li>
