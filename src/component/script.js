@@ -56,10 +56,12 @@ function Script() {
           <h2 id="titre">
             « The app you need when you want <br></br>to be STRONG »
           </h2>
-          <h3>
-            lakaka tintinri j zegu a iaOQSN JZOJVHIOZVCO CHKIZ <br></br> zec izc
-            jcajoozjbzrugbo v zebé
-          </h3>
+          <div id="para">
+            <h3>
+              Create in few clicks, the best program based on your body{" "}
+              <br></br> Get started
+            </h3>
+          </div>
           <button id="start" onClick={() => setPage("programme")}>
             START
           </button>
