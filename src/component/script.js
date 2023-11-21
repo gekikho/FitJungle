@@ -33,7 +33,9 @@ function Script() {
       ></link>
       <header className="App-header">
         <a href="#home" onClick={() => setPage("home")}>
-          <h2 id="Logo">FitJungle</h2>{" "}
+          <div id="logocontain">
+            <h2 id="Logo">FitJungle</h2>{" "}
+          </div>
         </a>
         <nav className="menu1">
           <ul>
@@ -60,14 +62,28 @@ function Script() {
           </h2>
           <div id="para">
             <h3>
-              Create in few clicks, the best program based on your body{" "}
-              <br></br> Get started
+              Unlock your body's potential with a personalized fitness program.
+              Tailored for you in a few clicks, it's the first step to a
+              healthier, more energetic life. <br />
+              <br />
+              Click to start your journey now.{" "}
             </h3>
           </div>
           <button id="start" onClick={() => setPage("programme")}>
-            START
+            <svg
+              height="24"
+              width="24"
+              fill="#FFFFFF"
+              viewBox="0 0 24 24"
+              data-name="Layer 1"
+              id="Layer_1"
+              class="sparkle"
+            >
+              <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+            </svg>
+            <span class="text">START</span>
           </button>
-          <div>
+          <div id="certifcontain">
             <p id="certifications">
               Our gym plans are verified by 3 professionals coach <br></br>
               and we are certified by basic-fit, fitness park, david laid, tibo
