@@ -1,11 +1,12 @@
 import { useState } from "react";
-import background from "./images/background.mp4";
 import exo from "../data/exo.json";
 
 function Script() {
   const [Page, setPage] = useState("home");
   const [programme, setProgramme] = useState(0);
-
+  const [Bench, setBench] = useState(0);
+  const [Squat, setSquat] = useState(0);
+  const [Deadlift, setDeadlift] = useState(0);
   const [plan, setPlan] = useState({
     style: " ",
     goal: "",
@@ -18,10 +19,12 @@ function Script() {
     hamstring: [],
   });
 
-  {
-    console.log(plan);
-  }
+  console.log(plan);
 
+  function pr(max) {
+    const liste = [20, max * 0.4, max * 0.7, max * 0.85, max];
+    return liste;
+  }
   return (
     <>
       <link
@@ -29,7 +32,7 @@ function Script() {
         rel="stylesheet"
       ></link>
       <header className="App-header">
-        <a href="#" onClick={() => setPage("home")}>
+        <a href="#home" onClick={() => setPage("home")}>
           <h2 id="Logo">FitJungle</h2>{" "}
         </a>
         <nav className="menu1">
@@ -40,13 +43,12 @@ function Script() {
               </a>
             </li>
             <li>
-              <a href="#">Menu generator</a>
+              <a href="#pr" onClick={() => setPage("pr")}>
+                PR generator
+              </a>
             </li>
             <li>
-              <a href="#">PR generator</a>
-            </li>
-            <li>
-              <a href="#">Find your Gymbro</a>
+              <a href="#fyg">Find your Gymbro</a>
             </li>
           </ul>
         </nav>
@@ -71,16 +73,6 @@ function Script() {
               and we are certified by basic-fit, fitness park, david laid, tibo
               inshape, cbum and many others
             </p>
-
-            <section id="qui-sommes-nous">
-              <div>
-                <img id="nous" src="./images/zoro.png" alt=""></img>
-              </div>
-
-              <div>
-                <img id="nous" src="./images/zoro.png" alt=""></img>
-              </div>
-            </section>
           </div>
         </div>
       ) : null}
@@ -547,6 +539,71 @@ function Script() {
               </div>
             </div>
           ) : null}
+        </div>
+      ) : null}
+      {Page === "pr" ? (
+        <div id="pr">
+          <h4>
+            Strength is a big part of bodybuilding, it measures our level and
+            our experience unconsciously it is measured by <br />
+            the bench, the squat and the deadlift.
+            <br /> <br /> <br /> <br /> <br />
+          </h4>
+          <div>
+            <h2>Bench</h2>
+            <input
+              id="bench"
+              type="number"
+              placeholder="input your personnal record in 1 rep"
+              onChange={(e) => setBench(e.target.value)}
+            />
+            <br />
+            <h2>Squat</h2>
+            <input
+              id="squat"
+              type="number"
+              placeholder="input your personnal record in 1 rep"
+              onChange={(e) => setSquat(e.target.value)}
+            />
+            <br />
+            <h2>Deadlift</h2>
+            <input
+              id="deadlift"
+              type="number"
+              placeholder="input your personnal record in 1 rep"
+              onChange={(e) => setDeadlift(e.target.value)}
+            />
+          </div>
+          <button className="next" onClick={() => setPage("pr2")}>
+            Next
+          </button>
+        </div>
+      ) : null}
+      {Page === "pr2" ? (
+        <div class="block">
+          <div class="quizz2">
+            <h3 id="day">Bench</h3> <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5>{" "}
+            3min rest <br />
+            <h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest
+            <br />
+            <h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br />
+            <h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br />
+            <h5>Step 5: {pr(Bench)[4]} * 1</h5>
+            <h3 id="day">Squat</h3>
+            <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5> 3min rest <br />
+            <h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest
+            <br />
+            <h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br />
+            <h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br />
+            <h5>Step 5: {pr(Bench)[4]} * 1</h5>
+            <h3 id="day">Deadlift</h3>
+            <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5> 3min rest <br />
+            <h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest
+            <br />
+            <h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br />
+            <h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br />
+            <h5>Step 5: {pr(Bench)[4]} * 1</h5>
+          </div>
         </div>
       ) : null}
     </>
