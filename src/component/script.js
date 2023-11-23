@@ -1,5 +1,6 @@
 import { useState } from "react";
 import exo from "../data/exo.json";
+import user from "../data/user.json";
 
 function Script() {
   const [Page, setPage] = useState("home");
@@ -18,8 +19,24 @@ function Script() {
     quadriceps: [],
     hamstring: [],
   });
-
-  console.log(plan);
+  const [pseudo, setPseudo] = useState("");
+  const [mdp, setMdp] = useState("");
+  const [mail, setMail] = useState("");
+  const [ville, setVille] = useState("");
+  const [age, setAge] = useState("");
+  const [sexe, setSexe] = useState("");
+  const [Utilisateurs, setUtilisateurs] = useState("");
+  const [city, setCity] = useState("Paris");
+  const [connect, setConnect] = useState("Login");
+  function fyg(s) {
+    const newCityList = [];
+    for (let i = 0; i < user.length; i++) {
+      if (user[i].ville === s) {
+        newCityList.push(user[i]);
+      }
+    }
+    setCity(newCityList);
+  }
 
   function pr(max) {
     const liste = [20, max * 0.4, max * 0.7, max * 0.85, max];
@@ -50,7 +67,14 @@ function Script() {
               </a>
             </li>
             <li>
-              <a href="#fyg">Find your Gymbro</a>
+              <a href="#fyg" onClick={() => setPage("fyg")}>
+                Find your Gymbro
+              </a>
+            </li>
+            <li>
+              <a href="#login" onClick={() => setPage("Login")}>
+                {connect}
+              </a>
             </li>
           </ul>
         </nav>
@@ -77,10 +101,20 @@ function Script() {
               viewBox="0 0 24 24"
               data-name="Layer 1"
               id="Layer_1"
-              class="sparkle"
+              class="dumbbell"
             >
-              <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+              <rect
+                x="1"
+                y="9"
+                width="22"
+                height="6"
+                rx="3"
+                fill="#FFFFFF"
+              ></rect>
+              <ellipse cx="4" cy="12" rx="4" ry="7" fill="#FFFFFF"></ellipse>
+              <ellipse cx="20" cy="12" rx="4" ry="7" fill="#FFFFFF"></ellipse>
             </svg>
+
             <span class="text">START</span>
           </button>
           <div id="certifcontain">
@@ -153,10 +187,10 @@ function Script() {
                     6 times
                   </button>
                 </form>
-                <p>I advise you to train 3-4-5 per week</p>
                 <button class="next" onClick={() => setProgramme(1)}>
                   Next
                 </button>
+                <p>I advise you to train 3-4-5 per week</p>
               </div>
             </div>
           ) : null}
@@ -563,9 +597,9 @@ function Script() {
             Strength is a big part of bodybuilding, it measures our level and
             our experience unconsciously it is measured by <br />
             the bench, the squat and the deadlift.
-            <br /> <br /> <br /> <br /> <br />
+            <br /> <br />
           </h4>
-          <div>
+          <div id="nbpr">
             <h2>Bench</h2>
             <input
               id="bench"
@@ -598,29 +632,188 @@ function Script() {
       {Page === "pr2" ? (
         <div class="block">
           <div class="quizz2">
-            <h3 id="day">Bench</h3> <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5>{" "}
-            3min rest <br />
-            <h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest
-            <br />
-            <h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br />
-            <h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br />
-            <h5>Step 5: {pr(Bench)[4]} * 1</h5>
-            <h3 id="day">Squat</h3>
-            <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5> 3min rest <br />
-            <h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest
-            <br />
-            <h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br />
-            <h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br />
-            <h5>Step 5: {pr(Bench)[4]} * 1</h5>
-            <h3 id="day">Deadlift</h3>
-            <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5> 3min rest <br />
-            <h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest
-            <br />
-            <h5>Step 3: {pr(Bench)[2]} * 6 rep</h5>3min rest <br />
-            <h5>Step 4: {pr(Bench)[3]} * 3</h5> 5min rest <br />
-            <h5>Step 5: {pr(Bench)[4]} * 1</h5>
+            <div id="prfin">
+              <h3 id="day">Bench</h3> <h5>Step 1: {pr(Bench)[0]} x 15 rep </h5>{" "}
+              3min rest <br />
+              <h5>Step 2: {pr(Bench)[1]} * 8 rep</h5> 3min rest
+              <br />
+              <h5>Step 3: {Math.round(pr(Bench)[2])} * 6 rep</h5>3min rest{" "}
+              <br />
+              <h5>Step 4: {Math.round(pr(Bench)[3])} * 3</h5> 5min rest <br />
+              <h5>Step 5: {Math.round(pr(Bench)[4])} * 1</h5>
+              <h3 id="day">Squat</h3>
+              <h5>Step 1: {Math.round(pr(Squat)[0])} x 15 rep </h5> 3min rest{" "}
+              <br />
+              <h5>Step 2: {Math.round(pr(Squat)[1])} * 8 rep</h5> 3min rest
+              <br />
+              <h5>Step 3: {Math.round(pr(Squat)[2])} * 6 rep</h5>3min rest{" "}
+              <br />
+              <h5>Step 4: {Math.round(pr(Squat)[3])} * 3</h5> 5min rest <br />
+              <h5>Step 5: {Math.round(pr(Squat)[4])} * 1</h5>
+              <h3 id="day">Deadlift</h3>
+              <h5>Step 1: {Math.round(pr(Deadlift)[0])} x 15 rep </h5> 3min rest{" "}
+              <br />
+              <h5>Step 2: {Math.round(pr(Deadlift)[1])} * 8 rep</h5> 3min rest
+              <br />
+              <h5>Step 3: {Math.round(pr(Deadlift)[2])} * 6 rep</h5>3min rest{" "}
+              <br />
+              <h5>Step 4: {Math.round(pr(Deadlift)[3])} * 3</h5> 5min rest{" "}
+              <br />
+              <h5>Step 5: {Math.round(pr(Deadlift)[4])} * 1</h5>
+            </div>
           </div>
         </div>
+      ) : null}
+      {Page === "Login" ? (
+        <>
+          <div id="register">
+            <h2>Register</h2>
+            <form className="form">
+              <div>
+                <label htmlFor="pseudo">Pseudo :</label>
+                <input
+                  type="text"
+                  id="pseudo"
+                  value={pseudo}
+                  onChange={(e) =>
+                    setPseudo(e.target.value) & setConnect(e.target.value)
+                  }
+                  required
+                />
+              </div>
+              <br />
+              <br />
+              <div>
+                <label htmlFor="mdp">Password :</label>
+                <input
+                  type="password"
+                  id="mdp"
+                  value={mdp}
+                  onChange={(e) => setMdp(e.target.value)}
+                  required
+                />
+              </div>
+              <br />
+              <br />
+              <br />
+              <div>
+                <label htmlFor="mail">Email adress :</label>
+                <input
+                  type="email"
+                  id="mail"
+                  value={mail}
+                  onChange={(e) => setMail(e.target.value)}
+                  required
+                />
+              </div>
+              <br />
+              <br />
+              <div>
+                <label htmlFor="ville">City :</label>
+                <input
+                  type="text"
+                  id="ville"
+                  value={ville}
+                  onChange={(e) => setVille(e.target.value)}
+                />
+              </div>
+              <br />
+              <br />
+              <div>
+                <label htmlFor="age">Age :</label>
+                <input
+                  type="number"
+                  id="age"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                />
+              </div>
+              <br />
+              <br />
+              <label>Gender :</label>
+              <div>
+                <label htmlFor="homme">Men</label>
+                <input
+                  type="radio"
+                  id="homme"
+                  name="sexe"
+                  value="homme"
+                  checked={sexe === "homme"}
+                  onChange={() => setSexe("homme")}
+                />
+                <label htmlFor="femme">Woman</label>
+                <input
+                  type="radio"
+                  id="femme"
+                  name="sexe"
+                  value="femme"
+                  checked={sexe === "femme"}
+                  onChange={() => setSexe("femme")}
+                />
+              </div>
+              <br />
+              <button
+                className="reponse"
+                type="submit"
+                onClick={() => setPage("home")}
+              >
+                S'inscrire
+              </button>
+            </form>
+          </div>
+        </>
+      ) : null}
+      {Page === "fyg" ? (
+        <>
+          <div id="fygdiv">
+            <div id="fygborder">
+              <input
+                type="text"
+                id="search"
+                placeholder="Where do you want to train ?"
+                value={Utilisateurs}
+                onChange={(e) => setUtilisateurs(e.target.value)}
+              />
+              <button onClick={() => fyg(Utilisateurs)}>Search</button>
+            </div>
+          </div>
+          {console.log(city)}
+          <div className="user">
+            <h2 className="pseudo">{city[0].name}</h2>
+            <h3 className="age">{city[0].age}</h3>
+            <h4 className="ville">{city[0].ville}</h4>
+            <h4 className="mail">{city[0].mail}</h4>
+            <h4 className="phone"> {city[0].phone}</h4>
+          </div>
+          <div className="user">
+            <h2 className="pseudo">{city[1].name}</h2>
+            <h3 className="age">{city[1].age}</h3>
+            <h4 className="ville">{city[1].ville}</h4>
+            <h4 className="mail">{city[1].mail}</h4>
+            <h4 className="phone"> {city[1].phone}</h4>
+          </div>
+          <div className="user">
+            <h2 className="pseudo">{city[2].name}</h2>
+            <h3 className="age">{city[2].age}</h3>
+            <h4 className="ville">{city[2].ville}</h4>
+            <h4 className="mail">{city[2].mail}</h4>
+            <h4 className="phone"> {city[2].phone}</h4>
+          </div>
+          <div className="user">
+            <h2 className="pseudo">{city[3].name}</h2>
+            <h3 className="age">{city[3].age}</h3>
+            <h4 className="ville">{city[3].ville}</h4>
+            <h4 className="mail">{city[3].mail}</h4>
+            <h4 className="phone"> {city[3].phone}</h4>
+          </div>
+          <div className="user">
+            <h2 className="pseudo">{city[4].name}</h2>
+            <h3 className="age">{city[4].age}</h3>
+            <h4 className="ville">{city[4].ville}</h4>
+            <h4 className="mail">{city[4].mail}</h4>
+            <h4 className="phone"> {city[4].phone}</h4>
+          </div>
+        </>
       ) : null}
     </>
   );

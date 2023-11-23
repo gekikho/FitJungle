@@ -1,10 +1,10 @@
-import './App.css';
-import Script from './component/script.js';
+import "./App.css";
+import Script from "./component/script.js";
 
 function App() {
   return (
     <div className="App">
-      <Script/>
+      <Script />
     </div>
   );
 }

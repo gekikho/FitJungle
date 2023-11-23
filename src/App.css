@@ -9,8 +9,29 @@ body {
   background: url("./component/images/back.jpg");
   background-attachment: fixed;
   background-size: cover;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
-
+body.scrolling {
+  opacity: 0.8;
+  background-color: #555;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 .App-header {
   background-color: transparent;
   min-height: 17vh;
@@ -27,6 +48,7 @@ body {
 .menu1 {
   background-color: rgba(28, 26, 28);
   border-radius: 1em 0 0 1em;
+  box-shadow: 0 4px 30px blue;
 }
 .menu1 li {
   display: inline;
@@ -66,6 +88,7 @@ body {
   border-radius: 1em;
   padding: 20px;
   margin-bottom: 10px;
+  box-shadow: 0 4px 30px blue;
 }
 h3 {
   text-align: center;
@@ -108,12 +131,17 @@ h3 {
   border-radius: 30px;
 }
 
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .quizz {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(28, 26, 28);
   text-align: center;
-  margin: 30px 600px;
-  padding: 30px;
-  border: 2px solid white;
+  margin-top: 200px;
+  padding: 50px 50px;
+  border-radius: 1em;
 }
 
 #reponse {
@@ -122,13 +150,12 @@ h3 {
   font-size: 20px;
   padding: 10px;
   color: #fff;
-  background: black;
-  background: black;
+  background: rgba(28, 26, 28);
+  border-radius: 0.5em;
 }
 
 #reponse:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: rgba(28, 26, 28);
   border: 2px solid white;
 }
 #reponse:active,
@@ -142,78 +169,80 @@ p {
   color: white;
 }
 #pr {
+  background: rgba(28, 26, 28);
   text-align: center;
+  border-radius: 1em;
   color: white;
-}
-
-.block {
+  padding: 50px;
+  width: fit-content;
+  margin: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin-top: 0;
+  flex-direction: column;
 }
 
+#pr > div > h2 {
+  background-color: rgba(0, 0, 255, 0.2);
+  border-radius: 3em;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+#nbpr {
+  margin-bottom: 50px;
+}
+#prfin > h5 {
+  font-size: 20px;
+}
+#nbpr > input {
+  margin: 10px;
+  background: none;
+  border: none;
+  max-width: 190px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 1em;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  color: #fff;
+}
 .next {
-  margin-top: 20px;
   font-size: 30px;
   padding: 10px 20px;
   color: #fff;
-  background: black;
-  border: 2px solid white;
-  position: absolute;
-  bottom: 20px;
-  bottom: 20px;
-  right: 20px;
-  border-radius: 40px;
+  background: rgba(28, 26, 28);
+  border-radius: 0.5em;
 }
 
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(28, 26, 28);
   color: white;
   border: 2px solid white;
 }
-
+#prfin {
+  margin: 50px 150px;
+}
 .quizz2 {
   color: white;
-  position: relative;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(28, 26, 28);
   text-align: center;
   margin: 30px auto;
   padding: 30px;
-  border: 2px solid white;
-  overflow: hidden;
-}
-
-.quizz2::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30%;
-  height: 30%;
-  background-image: url("./component/images/vegeta.png");
-  background-size: cover;
-  opacity: 0.7;
-  z-index: -1;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-}
-
-.quizz2 p {
-  color: white;
+  overflow: scroll;
+  overflow-y: scroll;
+  max-height: 70vh;
+  border-radius: 1em;
 }
 
 #prog {
   border: 2px solid rgb(82, 80, 80);
-  white-space: nowrap;
-  border-radius: 10px;
+  border-radius: 0.5em;
   padding: 20px;
   font-family: "Arial", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.5);
   max-width: 600px;
   margin: 0 auto;
+  word-wrap: break-word;
 }
 
 @-webkit-keyframes slide-in-top {
@@ -253,6 +282,7 @@ p {
   width: fit-content;
   padding: 15px;
   border-radius: 1em;
+  box-shadow: 0 4px 30px blue;
 }
 
 #start {
@@ -268,9 +298,10 @@ p {
   cursor: pointer;
   transition: all 450ms ease-in-out;
   margin-left: 150px;
+  box-shadow: 0 4px 30px blue;
 }
 
-.sparkle {
+.dumbbell {
   fill: #aaaaaa;
   transition: all 800ms ease;
 }
@@ -293,7 +324,73 @@ p {
   color: white;
 }
 
-#start:hover .sparkle {
+#start:hover .dumbbell {
   fill: white;
   transform: scale(1.2);
+}
+
+#register {
+  background-color: rgba(28, 26, 28);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  border-radius: 1em;
+  margin: auto;
+}
+#register > form {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+#register > form > div > input {
+  margin-left: 10px;
+  background-color: #212121;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#register > form > div > input:focus {
+  color: white;
+  background-color: #212121;
+  outline-color: blue;
+  box-shadow: -3px -3px 15px blue;
+  transition: 0.1s;
+  transition-property: box-shadow;
+}
+#register > form > div > input:hover {
+  outline-color: blue;
+  box-shadow: -3px -3px 15px blue;
+  transition: 0.1s;
+  transition-property: box-shadow;
+}
+#search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin-left: 10px;
+  background-color: #212121;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+#search:focus {
+  color: white;
+  background-color: #212121;
+  outline-color: blue;
+  box-shadow: -3px -3px 15px blue;
+  transition: 0.1s;
+  transition-property: box-shadow;
+}
+#search > input:hover {
+  outline-color: blue;
+  box-shadow: -3px -3px 15px blue;
+  transition: 0.1s;
+  transition-property: box-shadow;
 }
