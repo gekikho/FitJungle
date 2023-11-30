@@ -774,44 +774,69 @@ function Script() {
                 value={Utilisateurs}
                 onChange={(e) => setUtilisateurs(e.target.value)}
               />
-              <button onClick={() => fyg(Utilisateurs)}>Search</button>
+              <button onClick={() => fyg(Utilisateurs)}>
+                <svg
+                  className="sparkle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  <line x1="11" y1="15" x2="11" y2="15" />
+                </svg>
+
+                <t id="txtfyg">Search</t>
+              </button>
             </div>
           </div>
           {console.log(city)}
-          <div className="user">
-            <h2 className="pseudo">{city[0].name}</h2>
-            <h3 className="age">{city[0].age}</h3>
-            <h4 className="ville">{city[0].ville}</h4>
-            <h4 className="mail">{city[0].mail}</h4>
-            <h4 className="phone"> {city[0].phone}</h4>
-          </div>
-          <div className="user">
-            <h2 className="pseudo">{city[1].name}</h2>
-            <h3 className="age">{city[1].age}</h3>
-            <h4 className="ville">{city[1].ville}</h4>
-            <h4 className="mail">{city[1].mail}</h4>
-            <h4 className="phone"> {city[1].phone}</h4>
-          </div>
-          <div className="user">
-            <h2 className="pseudo">{city[2].name}</h2>
-            <h3 className="age">{city[2].age}</h3>
-            <h4 className="ville">{city[2].ville}</h4>
-            <h4 className="mail">{city[2].mail}</h4>
-            <h4 className="phone"> {city[2].phone}</h4>
-          </div>
-          <div className="user">
-            <h2 className="pseudo">{city[3].name}</h2>
-            <h3 className="age">{city[3].age}</h3>
-            <h4 className="ville">{city[3].ville}</h4>
-            <h4 className="mail">{city[3].mail}</h4>
-            <h4 className="phone"> {city[3].phone}</h4>
-          </div>
-          <div className="user">
-            <h2 className="pseudo">{city[4].name}</h2>
-            <h3 className="age">{city[4].age}</h3>
-            <h4 className="ville">{city[4].ville}</h4>
-            <h4 className="mail">{city[4].mail}</h4>
-            <h4 className="phone"> {city[4].phone}</h4>
+          <div id="fygresult">
+            <div className="user">
+              <h2 className="pseudo">{city[0].name}</h2>
+              <h3 className="age">{city[0].age}</h3>
+              <h4 className="ville">{city[0].ville}</h4>
+              <h4 className="mail">{city[0].mail}</h4>
+              <h4 className="phone"> {city[0].phone}</h4>
+            </div>
+            <div class="separator"></div>
+            <div className="user">
+              <h2 className="pseudo">{city[1].name}</h2>
+              <h3 className="age">{city[1].age}</h3>
+              <h4 className="ville">{city[1].ville}</h4>
+              <h4 className="mail">{city[1].mail}</h4>
+              <h4 className="phone"> {city[1].phone}</h4>
+            </div>
+            <div class="separator"></div>
+            <div className="user">
+              <h2 className="pseudo">{city[2].name}</h2>
+              <h3 className="age">{city[2].age}</h3>
+              <h4 className="ville">{city[2].ville}</h4>
+              <h4 className="mail">{city[2].mail}</h4>
+              <h4 className="phone"> {city[2].phone}</h4>
+            </div>
+            <div class="separator"></div>
+            <div className="user">
+              <h2 className="pseudo">{city[3].name}</h2>
+              <h3 className="age">{city[3].age}</h3>
+              <h4 className="ville">{city[3].ville}</h4>
+              <h4 className="mail">{city[3].mail}</h4>
+              <h4 className="phone"> {city[3].phone}</h4>
+            </div>
+            <div class="separator"></div>
+            <div className="user">
+              <h2 className="pseudo">{city[4].name}</h2>
+              <h3 className="age">{city[4].age}</h3>
+              <h4 className="ville">{city[4].ville}</h4>
+              <h4 className="mail">{city[4].mail}</h4>
+              <h4 className="phone"> {city[4].phone}</h4>
+            </div>
           </div>
         </>
       ) : null}
